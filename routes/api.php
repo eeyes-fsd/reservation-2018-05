@@ -13,6 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1',[
+    'namespace' => 'App\Http\Controllers\Api',
+    'middleware' => ['serializer:array', 'bindings', 'change-locale']
+],function ($api){
+
+    // 需要 token 认证的接口
+    $api->group(['middleware'=>'api.auth'],function ($api){
+        //TODO:Create Api
+    });
 });
