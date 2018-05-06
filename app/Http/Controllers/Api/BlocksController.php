@@ -31,4 +31,9 @@ class BlocksController extends Controller
             'msg' => 'OK',
         ]);
     }
+
+    public function getDates()
+    {
+
+    }
 }

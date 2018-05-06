@@ -6,10 +6,16 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-		"dingo/api": "2.0.0-alpha1",
+        "dingo/api": "2.0.0-alpha1",
+        "doctrine/dbal": "^2.7",
         "fideloper/proxy": "~3.3",
+        "guzzlehttp/guzzle": "^6.3",
+        "jms/serializer": "^1.11",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "overtrue/laravel-wechat": "^4.0",
+        "socialiteproviders/weixin": "^4.0",
+        "tymon/jwt-auth": "1.0.0-rc.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

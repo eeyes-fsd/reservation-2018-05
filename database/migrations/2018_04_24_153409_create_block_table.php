@@ -16,9 +16,10 @@ class CreateBlockTable extends Migration
         Schema::create('block', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('day_id');
             $table->integer('status')->default(1);
-            $table->timestamp('beginning_at')->default(now());
-            $table->timestamp('finishing_at')->default(now());
+            $table->timestamp('beginning_at')->nullable();
+            $table->timestamp('finishing_at')->nullable();
             $table->timestamps();
         });
     }

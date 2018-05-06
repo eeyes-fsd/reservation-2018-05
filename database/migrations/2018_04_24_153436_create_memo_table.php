@@ -15,8 +15,8 @@ class CreateMemoTable extends Migration
     {
         Schema::create('memo', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('begins_at')->commit('开始时间');
-            $table->timestamp('finish_at')->commit('结束时间');
+            $table->timestamp('beginning_at')->nullable();
+            $table->timestamp('finishing_at')->nullable();
             $table->timestamps();
         });
     }
