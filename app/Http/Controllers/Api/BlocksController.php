@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Block;
+use Auth;
 
 class BlocksController extends Controller
 {
@@ -32,8 +33,28 @@ class BlocksController extends Controller
         ]);
     }
 
-    public function getDates()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request)
     {
+        $user = Auth::guard('api')->user();
+        $blocks = $request->reserve_time;
 
+        foreach ($blocks as $block)
+        {
+            $temp = Block::find($block);
+            $temp->user_id = $user->id;
+            $temp->status = 0;
+            $temp->amount = $request->people;
+            $temp->phone = $request->phone;
+            $temp->unit = $request->company;
+        }
+
+        return response()->json([
+            'code' => 200,
+            'msg' => '预约成功',
+        ]);
     }
 }

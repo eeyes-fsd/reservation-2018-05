@@ -15,6 +15,7 @@ namespace App\Model;
  */
 class Block extends Model
 {
+    protected $table = 'block';
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

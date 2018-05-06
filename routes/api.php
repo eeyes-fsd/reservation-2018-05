@@ -22,10 +22,7 @@ $api->version('v1',[
         return response('This is version v1');
     });
 
-//    $api->get('debug',function (){
-//        dd(now());
-//    });
-
+    /** 登陆相关接口 */
     $api->group([
         'middleware' => 'api.throttle',
         'limit' => config('api.rate_limits.sign.limit'),
@@ -39,18 +36,30 @@ $api->version('v1',[
             ->name('api.authorizations.update');
     });
 
+    /** 时间-块 无需认证接口 */
     $api->group([
         'middleware' => 'api.throttle',
         'limit' => config('api.rate_limits.sign.limit'),
         'expires' => config('api.rate_limits.sign.expires'),
     ],function ($api){
-
-    });
-
-    // 需要 token 认证的接口
-    $api->group(['middleware'=>'api.auth'],function ($api){
         //获取可用日期
         $api->get('days', 'DaysController@index')
             ->name('api.days.index');
+        //获取某日可用时间块
+        $api->get('days/{day}','DaysController@getDay')
+            ->name('api.days.get');
+    });
+
+    /** 需要 token 认证的接口 */
+    $api->group(['middleware'=>'api.auth'],function ($api){
+        // 上传身份证件照片
+        $api->post('user/id-card','UsersController@idCard')
+            ->name('api.user.id-card');
+        // 检查身份证件照片
+        $api->post('user/check','UsersController@checkCard')
+            ->name('api.user.check');
+        // 对指定时间段进行预约
+        $api->post('reserve','BlocksController@update')
+            ->name('api.reserve');
     });
 });
