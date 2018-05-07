@@ -50,11 +50,52 @@ class BlocksController extends Controller
             $temp->amount = $request->people;
             $temp->phone = $request->phone;
             $temp->unit = $request->company;
+            $temp->save();
         }
 
         return response()->json([
             'code' => 200,
             'msg' => '预约成功',
         ]);
+    }
+
+    /**
+     * @param $block_id
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function delete($block_id)
+    {
+        $block = Block::find($block_id);
+        $this->authorize('delete',$block);
+        $data['user_id'] = null;
+        $data['status']= 1;
+        $data['amount'] = null;
+        $data['phone'] = null;
+        $data['unit'] = null;
+        $block->update($data);
+
+        return response()->json([
+            'code' => 200,
+            'msg' => '预约取消成功',
+        ]);
+    }
+
+    public function pass(Block $block)
+    {
+        //$this->authorize('check',$block);
+        $block->checked = 1;
+        $block->save();
+
+        return back()->with('success','审核通过');
+    }
+
+    public function refuse(Block $block)
+    {
+        //$this->authorize('check',$block);
+        $block->checked = -1;
+        $block->save();
+
+        return back()->with('success','审核拒绝');
     }
 }

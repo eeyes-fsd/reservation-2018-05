@@ -61,5 +61,8 @@ $api->version('v1',[
         // 对指定时间段进行预约
         $api->post('reserve','BlocksController@update')
             ->name('api.reserve');
+        // 对指定的日期取消预约
+        $api->post('cancel/{block}','BlocksController@delete')
+            ->name('api.cancel');
     });
 });
