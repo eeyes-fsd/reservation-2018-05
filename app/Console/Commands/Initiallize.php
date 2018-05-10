@@ -51,47 +51,7 @@ class Initiallize extends Command
 
         foreach ($days as $day)
         {
-            $origin = Carbon::createFromTimeString($day->date);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(10)->addMinutes(10)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(20)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(3)->addMinutes(10)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(20)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
+            $day->createBlocks();
         }
     }
 }

@@ -27,4 +27,9 @@ class AdminPolicy
             return true;
         }
     }
+
+    public function manage(Admin $user)
+    {
+        return $user->super == true;
+    }
 }

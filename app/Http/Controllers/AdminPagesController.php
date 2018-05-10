@@ -13,8 +13,8 @@ class AdminPagesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest:admin',[
-            'only' => ['Login','LoginStore']
+        $this->middleware('auth:admin',[
+            'only' => ['logout','index','check'],
         ]);
     }
 

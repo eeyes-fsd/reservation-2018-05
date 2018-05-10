@@ -27,11 +27,25 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ route('admins.check', Auth::id()) }}">
+                                <a href="{{ route('admins.check') }}">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                     审核系统
                                 </a>
                             </li>
+                            @if(Auth::guard('admin')->user()->super == true)
+                                <li>
+                                    <a href="{{ route('admin.create') }}">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        创建管理员用户
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.index') }}">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        管理管理员用户
+                                    </a>
+                                </li>
+                            @endif
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

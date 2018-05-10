@@ -14,8 +14,9 @@
                 <div class="col-md-4">操作</div>
             </div>
         @foreach($blocks as $block)
-                @include('admin._block')
-            @endforeach
+            @include('admin._block')
+        @endforeach
         </div>
+        {!! $blocks->render() !!}
     </div>
 @endsection

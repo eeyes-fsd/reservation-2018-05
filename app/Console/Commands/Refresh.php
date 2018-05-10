@@ -60,48 +60,7 @@ class Refresh extends Command
             $day = Day::create([
                 'date' => Carbon::today()->addDays(30)->toDateTimeString(),
             ]);
-            $origin = Carbon::createFromTimeString($day->date);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(10)->addMinutes(10)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(20)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(3)->addMinutes(10)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(20)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-            Block::create([
-                'day_id' => $day->id,
-                'begin_at' => $origin->addHours(00)->addMinutes(30)->toDateTimeString()
-            ]);
-
+            $day->createBlocks();
             Log::info('Refresh Executed at '.Carbon::now()->toDateTimeString());
         }
 

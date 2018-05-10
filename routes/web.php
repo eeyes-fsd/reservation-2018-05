@@ -21,3 +21,7 @@ Route::post('/admins/logout','AdminPagesController@Logout')->name('logout');
 
 Route::post('admin/check/{block}/pass','Api\BlocksController@pass')->name('check.pass');
 Route::post('admin/check/{block}/refuse','Api\BlocksController@refuse')->name('check.refuse');
+
+Route::get('/',function (){
+    return view('welcome');
+});
