@@ -14,7 +14,7 @@ class UsersController extends Controller
         {
             $path = $request->file('idcard')->store('id-card','public');
             Auth::user()->update([
-                'id-card' => $path,
+                'id_card' => $path,
             ]);
 
             return response()->json([

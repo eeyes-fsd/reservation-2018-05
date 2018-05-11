@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Admin;
+use App\Model\Block;
 use Auth;
 
 class AdminController extends Controller
@@ -22,6 +23,11 @@ class AdminController extends Controller
     public function create()
     {
         return view('admin.create');
+    }
+
+    public function show(Block $block)
+    {
+        return view('admin.show',compact('block'));
     }
 
     public function store(Request $request)
@@ -61,8 +67,12 @@ class AdminController extends Controller
 
     public function destroy(Admin $admin)
     {
-        if (Auth::guard('admin')->user())
-        $admin->delete();
-        return back()->with('success','删除账户成功');
+        if (Auth::guard('admin')->user()->super = true)
+        {
+            $admin->delete();
+            return back()->with('success','删除账户成功');
+        } else {
+            abort(401);
+        }
     }
 }

@@ -75,6 +75,7 @@ class DaysController extends Controller
             $tmp = [
                 'id' => $block->id,
                 'begin_at' => Carbon::createFromTimeString($block->begin_at)->toTimeString(),
+                'check' => $block->checked,
             ];
 
             if ($block->status == 0)

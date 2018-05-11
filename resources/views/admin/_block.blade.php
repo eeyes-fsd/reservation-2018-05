@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-2">{{ $block->begin_at }}</div>
+    <a href="{{ route('check.show',$block->id) }}" class="col-md-2">{{ $block->begin_at }}</a>
     <div class="col-md-1">{{ $block->amount }}</div>
     <div class="col-md-3">{{ $block->phone }}</div>
     @if($block->checked == null)
