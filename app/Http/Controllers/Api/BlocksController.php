@@ -73,6 +73,7 @@ class BlocksController extends Controller
         $data['amount'] = null;
         $data['phone'] = null;
         $data['unit'] = null;
+        $data['checked'] = null;
         $block->update($data);
 
         return response()->json([
