@@ -13,7 +13,7 @@ class UsersController extends Controller
         if ($request->hasFile('idcard') && $request->file('idcard')->isValid())
         {
             $path = $request->file('idcard')->store('id-card','public');
-            Auth::user()->update([
+            Auth::guard('api')->user()->update([
                 'id_card' => $path,
             ]);
 
@@ -33,7 +33,7 @@ class UsersController extends Controller
     public function checkCard()
     {
         $data = false;
-        if (Auth::user()->id_card)
+        if (Auth::guard('api')->user()->id_card)
         {
             $data = true;
         }

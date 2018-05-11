@@ -10,8 +10,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/admin') }}">
-                西安交通大学西迁纪念馆预约审核系统
+            <a class="navbar-brand" href="{{ url('/admins') }}">
+               西迁纪念馆预约审核系统
             </a>
         </div>
 

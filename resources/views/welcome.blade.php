@@ -46,7 +46,8 @@
             }
 
             .title {
-                font-size: 84px;
+                margin-top: 16rem;
+                font-size: 2rem;
             }
 
             .links > a {
@@ -67,7 +68,7 @@
     <body>
             <div class="content">
                 <div class="title m-b-md">
-                    请直接进入后台管理
+                    西迁博物馆后台管理
                 </div>
 
                 <div class="links">

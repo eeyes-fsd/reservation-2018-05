@@ -11,7 +11,9 @@
 |
 */
 
+/** 辣鸡路由我自己都不想看 */
 Route::resource('admin','AdminController',['except' => ['show']]);
+Route::resource('memo','MemosController');
 
 Route::get('/admins','AdminPagesController@index')->name('admins.index');
 Route::get('/admins/login','AdminPagesController@Login')->name('login');

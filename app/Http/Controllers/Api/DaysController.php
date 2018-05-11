@@ -17,7 +17,7 @@ class DaysController extends Controller
 
         $temp = [];
 
-        if (Auth::check())
+        if (Auth::guard('api')->check())
         {
             $blocks = Auth::guard('api')->user()->blocks;
             foreach ($blocks as $block) {
@@ -67,6 +67,10 @@ class DaysController extends Controller
     public function getDay($id)
     {
         $day = Day::find($id);
+        if (!$day)
+        {
+            abort(404);
+        }
         $blocks = $day->blocks;
 
         $data = [];
