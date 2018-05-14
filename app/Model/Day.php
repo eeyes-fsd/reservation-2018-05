@@ -59,7 +59,7 @@ class Day extends Model
         ]);
         Block::create([
             'day_id' => $this->id,
-            'begin_at' => $origin->addHours(2)->addMinutes(40)->toDateTimeString()
+            'begin_at' => $origin->addHours(3)->addMinutes(40)->toDateTimeString()
         ]);
         Block::create([
             'day_id' => $this->id,

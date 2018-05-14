@@ -19,6 +19,7 @@ class CreateBlockTable extends Migration
             $table->integer('day_id');
             $table->integer('status')->default(1);
             $table->timestamp('begin_at')->nullable();
+            $table->string('name')->nullable();
             $table->integer('amount')->nullable();
             $table->string('phone')->nullable();
             $table->string('unit')->nullable();

@@ -47,6 +47,7 @@ class BlocksController extends Controller
             $temp = Block::find($block);
             $temp->user_id = $user->id;
             $temp->status = 0;
+            $temp->name = $request->name;
             $temp->amount = $request->people;
             $temp->phone = $request->phone;
             $temp->unit = $request->company;
@@ -69,7 +70,8 @@ class BlocksController extends Controller
         $block = Block::find($block_id);
         $this->authorize('delete',$block);
         $data['user_id'] = null;
-        $data['status']= 1;
+        $data['status'] = 1;
+        $data['name'] = null;
         $data['amount'] = null;
         $data['phone'] = null;
         $data['unit'] = null;
