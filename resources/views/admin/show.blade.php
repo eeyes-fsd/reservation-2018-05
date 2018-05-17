@@ -17,6 +17,10 @@
                     <h5 class="list-group-item-text">{{ $block->amount }}</h5>
                 </div>
                 <div class="col-md-2 list-group-item show-small-item">
+                    <h5 class="list-group-item-info">姓名</h5>
+                    <h5 class="list-group-item-text">{{ $block->name }}</h5>
+                </div>
+                <div class="col-md-2 list-group-item show-small-item">
                     <h5 class="list-group-item-info">联系电话</h5>
                     <h5 class="list-group-item-text">{{ $block->phone }}</h5>
                 </div>

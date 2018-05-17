@@ -8,6 +8,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-2  col-xs-4 s-div">时间</div>
+                <div class="col-md-2  col-xs-4 s-div">姓名</div>
                 <div class="col-md-1  col-xs-2 s-div">人数</div>
                 <div class="col-md-3 col-xs-3 s-div">电话</div>
                 <div class="col-md-2 col-xs-3 s-div">状态</div>

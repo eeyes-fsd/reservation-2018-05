@@ -49,9 +49,21 @@ class AdminPagesController extends Controller
         return view('admin.index');
     }
 
-    public function check()
+    public function check(Request $request)
     {
-        $blocks = Block::where('status','0')->paginate(20);
+        $status = $request->status;
+        switch ($status)
+        {
+            case 0:
+                $blocks = Block::where('status','0')->paginate(20);
+                break;
+            case 1:
+                $blocks = Block::where('status','0')->whereNull('checked')->paginate(20);
+                break;
+            case -1:
+                $blocks = Block::where('status','0')->whereNotNull('checked')->paginate(20);
+        }
+
         return view('admin.check',compact('blocks'));
     }
 }
