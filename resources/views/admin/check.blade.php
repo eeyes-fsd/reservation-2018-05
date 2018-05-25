@@ -3,7 +3,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading" style="height: 6rem;">
-            <span style="font-size: 4rem;line-height: 4rem">审核</span>
+            <span><a href="{{ route('admins.check') }}" style="text-decoration:none;font-size: 4rem;line-height: 4rem;">审核</a> </span>
             <a class="btn btn-primary btn-lg" style="float: right;" href="{{ route('admins.check') }}" onclick="event.preventDefault();document.getElementById('passed').submit() ">已审核</a>
             <a class="btn btn-primary btn-lg" style="float: right;margin-right: 15px;" href="{{ route('admins.check') }}" onclick="event.preventDefault();document.getElementById('rejected').submit()">未审核</a>
             <form id="passed" action="{{ route('admins.check') }}" method="post" style="display: none">

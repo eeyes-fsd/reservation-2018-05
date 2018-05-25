@@ -98,17 +98,8 @@ body {
 .btn-show-right{
   margin-left: 200px;
   margin-top: 80px;
-  width: 90px;
 }
-.btn-show-left{
-  width: 90px;
-}
-.memo-btn-left{
-  width: 90px;
-}
-.memo-btn-right{
-  width: 90px;
-}
+
 /* special for phones */
 @media screen and (max-device-width: 500px) {
   .s-div{
@@ -133,7 +124,6 @@ body {
   .btn-show-right{
     margin-top: 30px;
     margin-left: 30px;
-    width: 90px;
   }
   .memo-btn-left{
     width: 40%;
