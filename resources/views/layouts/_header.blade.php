@@ -27,11 +27,15 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ route('admins.check') }}">
+                                <a href="{{ route('admins.check') }}" onclick="event.preventDefault();document.getElementById('shenhe').submit()">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                     审核系统
                                 </a>
                             </li>
+                            <form id="shenke" action="{{ route('admins.check') }}" method="post" style="display:none;">
+                                {{ csrf_field() }}
+                                <input type="text" name="status" value="0">
+                            </form>
                             @if(Auth::guard('admin')->user()->super == true)
                                 <li>
                                     <a href="{{ route('admin.create') }}">

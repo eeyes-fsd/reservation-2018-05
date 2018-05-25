@@ -51,17 +51,21 @@ class AdminPagesController extends Controller
 
     public function check(Request $request)
     {
-        $status = $request->status;
+        $status = 0;
+        if ($request->status)
+        {
+            $status = $request->status;
+        }
         switch ($status)
         {
             case 0:
                 $blocks = Block::where('status','0')->paginate(20);
                 break;
-            case 1:
-                $blocks = Block::where('status','0')->whereNull('checked')->paginate(20);
-                break;
             case -1:
-                $blocks = Block::where('status','0')->whereNotNull('checked')->paginate(20);
+                $blocks = Block::where('status','0')->where('checked',0)->paginate(20);
+                break;
+            case 1:
+                $blocks = Block::where('status','0')->where('checked',1)->orWhere('checked',-1)->paginate(20);
         }
 
         return view('admin.check',compact('blocks'));

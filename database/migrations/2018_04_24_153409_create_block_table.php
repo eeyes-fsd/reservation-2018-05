@@ -23,7 +23,7 @@ class CreateBlockTable extends Migration
             $table->integer('amount')->nullable();
             $table->string('phone')->nullable();
             $table->string('unit')->nullable();
-            $table->integer('checked')->default(0);
+            $table->integer('checked')->nullable();
             $table->timestamps();
         });
     }

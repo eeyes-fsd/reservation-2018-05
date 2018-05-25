@@ -75,7 +75,7 @@ class BlocksController extends Controller
         $data['amount'] = null;
         $data['phone'] = null;
         $data['unit'] = null;
-        $data['checked'] = null;
+        $data['checked'] = 0;
         $block->update($data);
 
         return response()->json([
@@ -84,7 +84,7 @@ class BlocksController extends Controller
         ]);
     }
 
-    public function pass(Block $block)
+    public function pass(Block $block, Request $request)
     {
         //$this->authorize('check',$block);
         $block->checked = 1;
@@ -93,7 +93,7 @@ class BlocksController extends Controller
         return back()->with('success','审核通过');
     }
 
-    public function refuse(Block $block)
+    public function refuse(Block $block, Request $request)
     {
         //$this->authorize('check',$block);
         $block->checked = -1;
